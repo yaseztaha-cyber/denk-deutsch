@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deutschraum — German, Step by Step.</title>
+<meta name="description" content="Deutschraum student German club — interactive A1 learning prototype.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF9F5'/%3E%3Cpath d='M4 4l14 6-6 3v9l-8 2z' fill='%23191919'/%3E%3Cpath d='M19 6v7q0 4 4 5' stroke='%23E3182B' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M15 20l8-2 5 8z' fill='%23F2AE19'/%3E%3C/svg%3E">
+<style>
+/* ============================================================
+   DEUTSCHRAUM — BAUHAUS LEARNING STUDIO
+   00 Tokens / 01 Base / 02 Header / 03 Hero / 04 Sections
+   05 Roadmap / 06 Module+Lesson / 07 Practice / 08 Vocab
+   09 Resources / 10 Footer / 11 RTL
+   12 Responsive / 13 Enhancement
+   ============================================================ */
+:root{
+  --ink:#191919; --red:#E3182B; --yellow:#F2AE19;
+  --paper:#FAF9F5; --white:#FFFFFF; --gray:#777777;
+  --line:2px solid #191919; --line-thin:1px solid #191919;
+  --font-h:"Archivo Black","Arial Black","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-b:"Helvetica Neue",Helvetica,Arial,"Segoe UI",Tahoma,sans-serif;
+  --font-ar:"Segoe UI",Tahoma,Arial,"Noto Kufi Arabic",sans-serif;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+svg{direction:ltr}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-b);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+[dir="rtl"] body, [dir="rtl"]{font-family:var(--font-ar),var(--font-b)}
+h1,h2,h3{font-family:var(--font-h);line-height:.95;letter-spacing:-.02em;margin:0;text-transform:uppercase}
+p{margin:0 0 1rem}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.de{direction:ltr;unicode-bidi:embed;font-family:var(--font-b)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:800}
+.label .sq{display:inline-block;width:10px;height:10px;background:var(--red);margin-right:8px;vertical-align:baseline}
+[dir="rtl"] .label .sq{margin-right:0;margin-left:8px}
+.btn{display:inline-flex;align-items:center;gap:10px;border:var(--line);background:var(--ink);color:#fff;padding:14px 22px;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:transform .12s ease,box-shadow .12s ease,background .12s}
+.btn:hover{background:var(--red);border-color:var(--red);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.btn:active{transform:none;box-shadow:none}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--yellow);border-color:var(--ink)}
+.btn.yellow{background:var(--yellow);color:var(--ink)}
+.btn.small{padding:9px 14px;font-size:12px}
+.btn:disabled{opacity:.55;cursor:default;transform:none;box-shadow:none}
+.skip{position:absolute;inset-inline-start:12px;top:-70px;background:var(--ink);color:#fff;padding:10px 16px;z-index:99}
+.skip:focus{top:12px}
+
+/* ---------- 02 Header ---------- */
+.topflag{display:flex;height:6px}
+.topflag span{flex:1}
+.topflag span:nth-child(1){background:var(--ink)}
+.topflag span:nth-child(2){background:var(--red)}
+.topflag span:nth-child(3){background:var(--yellow)}
+header.site{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:var(--line)}
+.bar{display:flex;align-items:center;gap:18px;min-height:68px}
+.logo{display:inline-flex;align-items:center;text-decoration:none}
+.logo-lockup{display:inline-flex;align-items:center}
+.logo-lockup svg{display:block;height:38px;width:auto}
+.logo-img{display:block;height:38px;width:auto}
+.logo-badge{display:inline-block;background:var(--paper);border:2px solid #fff;padding:8px 12px}
+.logo-badge .logo-lockup svg,.logo-badge .logo-img{height:34px}
+nav.main{display:flex;gap:2px;margin-left:auto}
+nav.main a{position:relative;text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:10px 13px;white-space:nowrap;transition:background .12s ease}
+nav.main a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:3px;background:transparent}
+nav.main a[aria-current="page"]::after{background:var(--red)}
+nav.main a:hover{background:var(--yellow)}
+nav.main a:hover::after{background:transparent}
+.head-actions{display:flex;align-items:center;gap:10px;margin-left:8px}
+.langseg{display:flex;border:var(--line);background:#fff}
+.langseg button{border:0;background:transparent;padding:8px 12px;font-weight:800;font-size:12px;letter-spacing:.1em}
+.langseg button.on{background:var(--ink);color:#fff}
+.progress-pill{border:var(--line);background:#fff;padding:8px 12px;font-size:12px;font-weight:800;letter-spacing:.06em;display:flex;gap:8px;align-items:center}
+.progress-pill i{width:12px;height:12px;background:var(--red);display:inline-block}
+.burger{display:none;border:var(--line);background:#fff;padding:9px 12px;font-weight:900}
+.mobilemenu{display:none;border-top:var(--line-thin);background:var(--paper);padding:10px 28px 18px}
+.mobilemenu.open{display:block}
+.mobilemenu a{display:block;padding:12px 0;border-bottom:var(--line-thin);text-decoration:none;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:14px}
+
+/* ---------- 03 Hero ---------- */
+.hero{border-bottom:var(--line);background:var(--paper)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch;position:relative}
+.hero-left{padding:56px 40px 48px 0;border-right:var(--line);position:relative}
+.hero-left::after{content:"A1";position:absolute;right:0;bottom:-24px;font-family:var(--font-h);font-size:clamp(120px,16vw,220px);line-height:1;color:transparent;-webkit-text-stroke:2px var(--ink);opacity:.12;pointer-events:none}
+[dir="rtl"] .hero-left::after{right:auto;left:0}
+.hero-left h1{font-size:clamp(48px,6.4vw,96px)}
+.hero-left h1 .row{display:block}
+.hero-left h1 .red{color:var(--red)}
+.hero-sub{font-size:18px;max-width:44ch;margin:20px 0 26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:22px;margin-top:26px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#333}
+.hero-meta b{display:block;font-family:var(--font-h);font-size:22px;letter-spacing:0}
+.hero-right{position:relative;min-height:480px;overflow:hidden;background:var(--white)}
+.geo{position:absolute}
+.geo-circle{width:300px;height:300px;background:var(--red);border-radius:50%;right:-40px;top:-40px;border:var(--line)}
+.geo-square{width:210px;height:210px;background:var(--ink);left:8%;top:12%;border:var(--line)}
+.geo-semi{width:260px;height:130px;background:var(--yellow);border:var(--line);border-bottom:0;border-radius:130px 130px 0 0;left:36%;bottom:8%}
+.geo-bar{height:14px;background:var(--ink);left:0;right:0;bottom:0;position:absolute}
+.geo-word{position:absolute;font-family:var(--font-h);text-transform:uppercase;line-height:1;z-index:3}
+.w-hallo{top:8%;left:6%;font-size:64px;background:#fff;border:var(--line);padding:4px 12px;transform:rotate(-4deg)}
+.w-lernen{top:44%;right:6%;font-size:22px;letter-spacing:.18em;background:var(--ink);color:#fff;padding:8px 12px}
+.w-guten{bottom:22%;left:5%;font-size:40px;color:var(--red);-webkit-text-stroke:2px var(--ink)}
+.geo-cross{left:8%;bottom:7%;width:64px;height:64px}
+.geo-dots{right:8%;bottom:26%;display:grid;grid-template-columns:repeat(5,12px);gap:8px}
+.geo-dots i{width:12px;height:12px;background:var(--ink);border-radius:50%}
+.geo-dots i:nth-child(3n){background:var(--red)}
+.geo-tape{position:absolute;top:53%;left:-12%;right:-12%;z-index:2;background:var(--ink);color:#fff;transform:rotate(-7deg);overflow:hidden;white-space:nowrap;font-size:13px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;border-top:2px solid #000;border-bottom:2px solid #000}
+.geo-tape span{display:inline-block;padding:10px 0}
+.geo-tape b{color:var(--yellow);font-weight:800}
+.stamp{position:absolute;z-index:5;left:calc(52.5% - 63px);top:30px;width:126px;transform:rotate(-8deg);filter:drop-shadow(5px 5px 0 var(--ink))}
+[dir="rtl"] .stamp{left:auto;right:calc(52.5% - 63px)}
+.stamp svg{display:block;width:100%;height:auto}
+.hero-ticker{border-top:var(--line);background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap;font-size:12px;letter-spacing:.22em;font-weight:800;text-transform:uppercase}
+.hero-ticker div{display:inline-block;padding:10px 0;animation:tick 26s linear infinite}
+.hero-ticker div:hover{animation-play-state:paused}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- 04 Sections ---------- */
+.section{padding:54px 0}
+.section>p.label{display:flex;align-items:center;gap:14px}
+.section>p.label::after{content:"";flex:1;height:2px;background:var(--ink)}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:26px}
+.sec-head h2{font-size:clamp(30px,4vw,54px)}
+.sec-head h2 em{font-style:normal;color:var(--red)}
+.continue{display:grid;grid-template-columns:120px 1fr auto;border:var(--line);background:#fff;box-shadow:8px 8px 0 var(--ink);position:relative}
+.continue::after{content:"";position:absolute;top:0;bottom:0;inset-inline-end:0;width:10px;background:repeating-linear-gradient(-45deg,var(--ink) 0 7px,var(--yellow) 7px 14px)}
+.continue-num{background:var(--yellow);border-right:var(--line);display:grid;place-items:center;font-family:var(--font-h);font-size:56px;font-variant-numeric:tabular-nums}
+.continue-body{padding:26px 28px}
+.continue-body h3{font-size:26px;margin:6px 0}
+.continue-tags{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.tag{border:1.5px solid var(--ink);padding:3px 10px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--paper)}
+.tag.red{background:var(--red);color:#fff;border-color:var(--red)}
+.tag.dark{background:var(--ink);color:#fff}
+.continue-side{border-left:var(--line);padding:26px;padding-inline-end:30px;display:grid;gap:12px;align-content:center;min-width:250px;background:var(--paper)}
+.meter{height:12px;border:var(--line);background:#fff;position:relative}
+.meter i{position:absolute;inset:0;background:var(--red);width:0}
+.strip{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);border:var(--line);background:#fff;box-shadow:8px 8px 0 var(--ink)}
+.strip>div{padding:20px 24px;border-right:var(--line-thin)}
+.strip>div:last-child{border-right:0}
+.strip b{font-family:var(--font-h);font-size:42px;display:block;line-height:1;font-variant-numeric:tabular-nums}
+.strip span{font-size:11px;letter-spacing:.2em;font-weight:800;text-transform:uppercase;color:#444}
+.strip .bar{margin-top:12px}
+.demo-note{margin-top:12px;font-size:12px;color:var(--gray)}
+.demo-note button{background:none;border:0;text-decoration:underline;color:inherit;font-size:12px;padding:0}
+.view{display:none}
+.view.active{display:block}
+
+/* ---------- 05 Roadmap ---------- */
+.path-head{background:var(--ink);color:#fff;border:var(--line);padding:34px 30px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;box-shadow:8px 8px 0 var(--ink)}
+.path-head h2{font-size:clamp(32px,4.5vw,58px)}
+.path-head h2 span{color:var(--yellow)}
+.journey{position:relative;margin:30px 0 0;padding-left:44px}
+.journey::before{content:"";position:absolute;left:17px;top:10px;bottom:10px;width:4px;background:var(--ink)}
+.mod{position:relative;border:var(--line);background:#fff;margin:0 0 18px;display:grid;grid-template-columns:110px 1fr auto;overflow:hidden;box-shadow:6px 6px 0 var(--ink);transition:transform .15s ease}
+.mod:hover{transform:translateX(6px)}
+[dir="rtl"] .mod:hover{transform:translateX(-6px)}
+.mod::before{content:"";position:absolute;left:-44px;top:50%;width:22px;height:22px;transform:translateY(-50%);border:3px solid var(--ink);background:#fff;border-radius:50%}
+.mod.is-current::before{background:var(--red)}
+.mod.is-done::before{background:var(--ink)}
+.mod-num{font-family:var(--font-h);font-size:64px;display:grid;place-items:center;border-right:var(--line);background:var(--paper);line-height:1;padding:10px;font-variant-numeric:tabular-nums}
+.mod.is-current .mod-num{background:var(--red);color:#fff}
+.mod.is-done .mod-num{background:var(--ink);color:#fff}
+.mod-body{padding:18px 22px}
+.mod-body h3{font-size:22px}
+.mod-body p{color:#333;max-width:70ch}
+.mod-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.mod-side{border-left:var(--line);padding:18px;display:grid;align-content:center;gap:10px;min-width:210px;background:var(--paper)}
+.mod-side .bar{width:150px}
+.status{font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.dot{width:12px;height:12px;border:2px solid var(--ink);border-radius:50%;display:inline-block}
+.is-current .dot{background:var(--red)} .is-done .dot{background:var(--ink)}
+
+/* ---------- 06 Module + Lesson ---------- */
+.crumb{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin:26px 0 12px}
+.crumb a{text-decoration:none;border-bottom:2px solid var(--red)}
+.chapter{border:var(--line);background:#fff;display:grid;grid-template-columns:170px 1fr;box-shadow:8px 8px 0 var(--ink)}
+.chapter-num{background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--font-h);font-size:84px;padding:20px;font-variant-numeric:tabular-nums}
+.chapter-num small{font-size:12px;letter-spacing:.2em;display:block;text-align:center}
+.chapter-body{padding:28px}
+.chapter-body h2{font-size:clamp(30px,4vw,50px)}
+.lessonrow{display:grid;grid-template-columns:90px 1fr auto auto;border:var(--line);border-top:0;background:#fff;align-items:center}
+.lessonrow:first-of-type{border-top:var(--line)}
+.lessonrow .n{font-family:var(--font-h);font-size:34px;text-align:center;border-right:var(--line-thin);padding:14px 0;background:var(--paper);transition:padding-inline-start .15s ease}
+.lessonrow.done .n{background:var(--ink);color:#fff}
+.lessonrow.current .n{background:var(--red);color:#fff}
+.lessonrow .t{padding:14px 18px;transition:background .12s ease}
+.lessonrow .t b{display:block;font-size:17px}
+.lessonrow .t span{font-size:13px;color:#555}
+.lessonrow:hover .t{background:var(--yellow)}
+.lessonrow:hover .n{padding-inline-start:6px}
+.lessonrow .mins{font-size:12px;font-weight:800;letter-spacing:.1em;padding:0 10px}
+.lessonrow .go{padding-inline-end:18px;font-weight:900}
+.prevnext{display:flex;justify-content:space-between;gap:12px;margin:22px 0;flex-wrap:wrap}
+.lesson-shell{display:grid;grid-template-columns:280px 1fr;gap:0;border:var(--line);background:#fff;margin-top:18px;box-shadow:8px 8px 0 var(--ink)}
+.lesson-side{border-right:var(--line);background:var(--paper);padding:22px}
+.lesson-side ol{margin:12px 0;padding-left:20px}
+.lesson-side li{margin:8px 0;font-size:14px}
+.lesson-main{padding:30px}
+.progressbar{height:14px;border:var(--line);background:#fff;margin:14px 0 22px;position:relative}
+.progressbar i{position:absolute;inset:0;background:var(--ink);width:0}
+.vocab-table{width:100%;border-collapse:collapse;margin:16px 0 22px}
+.vocab-table th{text-align:left;font-size:11px;letter-spacing:.18em;text-transform:uppercase;background:var(--ink);color:#fff;padding:10px}
+.vocab-table th:first-child{color:var(--yellow)}
+.vocab-table td{border-bottom:var(--line-thin);padding:12px 10px;vertical-align:top}
+.vocab-table td.de{font-weight:800;font-size:18px}
+.dialog{border:var(--line);margin:18px 0}
+.dialog div{padding:12px 16px;border-bottom:var(--line-thin);border-inline-start:8px solid var(--red)}
+.dialog div:nth-child(even){border-inline-start-color:var(--yellow)}
+.dialog div:last-child{border-bottom:0}
+.dialog b.de{font-size:17px}
+.speak{border:1.5px solid var(--ink);background:#fff;padding:4px 10px;font-size:12px;font-weight:800;margin-inline-start:10px}
+#lContent>p:first-of-type::first-letter{font-family:var(--font-h);font-size:3.1em;float:inline-start;line-height:.85;padding-inline-end:10px;color:var(--red)}
+.quizbox{border:var(--line);background:var(--paper);padding:22px;margin-top:22px}
+.opt{display:block;width:100%;text-align:left;border:var(--line);background:#fff;padding:13px 14px;margin:10px 0;font-weight:700;transition:background .12s ease,transform .12s ease}
+.opt:hover{transform:translateX(4px)}
+[dir="rtl"] .opt:hover{transform:translateX(-4px)}
+.opt .olet{display:inline-grid;place-items:center;width:30px;height:30px;border:2px solid currentColor;font-size:13px;font-weight:900;margin-inline-end:12px;vertical-align:middle;flex:none}
+.opt[aria-pressed="true"]{background:var(--yellow)}
+.opt[aria-pressed="true"] .olet{background:var(--ink);color:var(--yellow);border-color:var(--ink)}
+.opt.correct{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:inset 8px 0 0 var(--red)}
+[dir="rtl"] .opt.correct{box-shadow:inset -8px 0 0 var(--red)}
+.opt.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+.feedback{border-left:8px solid var(--ink);background:#fff;padding:14px 16px;margin-top:12px;display:none}
+.feedback.show{display:block}
+.feedback.good{border-color:var(--red)}
+.lesson-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* ---------- 07 Practice ---------- */
+.prac-grid{display:grid;grid-template-columns:repeat(3,1fr);border:var(--line);background:#fff}
+.prac{padding:24px;border-right:var(--line-thin);border-bottom:var(--line-thin);position:relative;transition:background .14s ease,color .14s ease}
+.prac:nth-child(3n){border-right:0}
+.prac b.num{font-family:var(--font-h);font-size:44px;display:block}
+.prac h3{font-size:18px;margin:6px 0}
+.prac p{font-size:14px;color:#333}
+.prac:hover{background:var(--ink);color:#fff}
+.prac:hover p{color:#ddd}
+.prac:hover .btn{background:var(--yellow);color:var(--ink);border-color:var(--yellow);box-shadow:none;transform:none}
+.prac .shape{height:10px;margin:14px 0 6px}
+.quizshell{border:var(--line);background:#fff;margin-top:22px;box-shadow:8px 8px 0 var(--ink)}
+.quizshell header{background:var(--ink);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.quizshell .qbody{padding:24px}
+.scoreband{display:grid;grid-template-columns:repeat(3,1fr);border:var(--line);margin-top:16px;background:var(--paper)}
+.scoreband div{padding:16px;text-align:center;border-right:var(--line-thin)}
+.scoreband div:last-child{border:0}
+
+/* ---------- 08 Vocab ---------- */
+.vocab-layout{display:grid;grid-template-columns:300px 1fr;gap:0;border:var(--line);background:#fff;box-shadow:8px 8px 0 var(--ink)}
+.vocab-filters{border-right:var(--line);padding:20px;background:var(--paper)}
+.vocab-filters input{width:100%;border:var(--line);padding:11px 12px;font:inherit;background:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{border:1.5px solid var(--ink);background:#fff;padding:6px 10px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;transition:transform .12s ease,background .12s ease}
+.chip:hover{transform:translateY(-2px)}
+.chip.on{background:var(--ink);color:#fff}
+.vocab-main{padding:26px}
+.flash{perspective:1000px;max-width:560px;margin:0 auto}
+.flash-inner{position:relative;transform-style:preserve-3d;transition:transform .45s ease;min-height:300px}
+.flash.flipped .flash-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border:var(--line);padding:30px;display:grid;align-content:center;gap:8px;background:#fff;box-shadow:10px 10px 0 var(--ink)}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:#fff}
+.face.front{border-top:12px solid var(--red)}
+.face.back{border-top:12px solid var(--yellow)}
+.face .big{font-family:var(--font-h);font-size:clamp(38px,5vw,60px);text-transform:uppercase;line-height:1}
+.flash-ctrl{display:flex;gap:10px;justify-content:center;margin-top:330px;flex-wrap:wrap}
+.countline{text-align:center;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-top:10px}
+
+/* ---------- 09 Resources ---------- */
+.res-row{display:grid;grid-template-columns:150px 1fr auto;gap:16px;border:var(--line);border-top:0;padding:18px 20px;background:#fff;align-items:center;transition:background .14s ease}
+.res-row.first{border-top:var(--line)}
+.res-row:hover{background:var(--ink)}
+.res-row:hover h3{color:#fff}
+.res-row:hover p{color:#ccc}
+.res-row:hover .btn{background:var(--yellow);color:var(--ink);border-color:var(--yellow);box-shadow:none;transform:none}
+.res-cat{font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.res-cat i{display:inline-block;width:10px;height:10px;margin-inline-end:8px}
+.res-row h3{margin:0;font-size:17px;font-family:var(--font-b);font-weight:900;text-transform:none}
+.res-row p{margin:4px 0 0;font-size:14px;color:#444}
+.about{border:var(--line);background:var(--ink);color:#fff;padding:30px;margin-top:26px;display:grid;grid-template-columns:120px 1fr;gap:20px}
+.about .sq{width:90px;height:90px;background:var(--yellow);border:3px solid #fff}
+
+/* ---------- 10 Footer ---------- */
+footer{background:var(--ink);color:#fff;margin-top:60px;border-top:6px solid var(--red)}
+.giant{font-family:var(--font-h);text-transform:uppercase;line-height:.9;font-size:clamp(56px,9.5vw,132px);color:transparent;-webkit-text-stroke:2px #fff;white-space:nowrap;overflow:hidden;padding:34px 0 6px;user-select:none}
+@supports not (-webkit-text-stroke:1px #fff){.giant{color:#fff}}
+.foot{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:24px;padding:40px 0}
+.foot h4{font-family:var(--font-h);margin:0 0 12px;text-transform:uppercase}
+.foot a{color:#fff;text-decoration:none;display:block;padding:5px 0;font-size:14px}
+.foot small{color:#bbb}
+.disclaimer{border-top:1px solid #444;padding:16px 0;font-size:12px;color:#bbb}
+
+/* ---------- 11 RTL ---------- */
+[dir="rtl"] .hero-left{padding:56px 0 48px 40px;border-right:0;border-left:var(--line)}
+[dir="rtl"] nav.main{margin-left:0;margin-right:auto}
+[dir="rtl"] .head-actions{margin-left:0;margin-right:8px}
+[dir="rtl"] .journey{padding-left:0;padding-right:44px}
+[dir="rtl"] .journey::before{left:auto;right:17px}
+[dir="rtl"] .mod::before{left:auto;right:-44px}
+[dir="rtl"] .continue-num{border-right:0;border-left:var(--line)}
+[dir="rtl"] .continue-side{border-left:0;border-right:var(--line)}
+[dir="rtl"] .mod-side{border-left:0;border-right:var(--line)}
+[dir="rtl"] .mod-num{border-right:0;border-left:var(--line)}
+[dir="rtl"] .lesson-side{border-right:0;border-left:var(--line)}
+[dir="rtl"] .label,[dir="rtl"] .tag,[dir="rtl"] .btn,[dir="rtl"] .status,[dir="rtl"] .mins,[dir="rtl"] .crumb,[dir="rtl"] .hero-meta,[dir="rtl"] .strip span,[dir="rtl"] .res-cat{letter-spacing:0}
+.arr{display:inline-block}
+[dir="rtl"] .arr{transform:scaleX(-1)}
+
+/* ---------- 12 Responsive ---------- */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-left{border-right:0;border-bottom:var(--line);padding-right:0}
+  .hero-right{min-height:360px}
+  .stamp{display:none}
+  .continue{grid-template-columns:90px 1fr}
+  .continue-side{grid-column:1/-1;border-left:0;border-top:var(--line)}
+  .mod{grid-template-columns:80px 1fr}
+  .mod-side{grid-column:1/-1;border-left:0;border-top:var(--line)}
+  .lesson-shell,.vocab-layout{grid-template-columns:1fr}
+  .lesson-side,.vocab-filters{border-right:0;border-bottom:var(--line)}
+  [dir="rtl"] .lesson-side{border-left:0}
+  .prac-grid{grid-template-columns:1fr 1fr}
+  .prac:nth-child(3n){border-right:var(--line-thin)}
+  .prac:nth-child(2n){border-right:0}
+  .strip{grid-template-columns:1fr 1fr}
+  .strip>div{border-bottom:var(--line-thin)}
+}
+@media(max-width:768px){
+  nav.main{display:none}
+  .burger{display:block}
+  .mobilemenu.open{display:block}
+  .progress-pill{display:none}
+  .chapter{grid-template-columns:1fr}
+  .chapter-num{font-size:56px}
+  .lessonrow{grid-template-columns:64px 1fr}
+  .lessonrow .mins,.lessonrow .go{display:none}
+  .lessonrow .t{padding-right:14px}
+  .res-row{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .prac-grid{grid-template-columns:1fr}
+  .prac{border-right:0!important}
+  .sec-head{flex-direction:column;align-items:start}
+}
+@media(max-width:520px){
+  .wrap{padding:0 16px}
+  .strip{grid-template-columns:1fr}
+  .strip>div{border-right:0}
+  .w-hallo{font-size:42px}
+  .w-guten{font-size:26px}
+  .sec-head h2{font-size:32px}
+  .continue{grid-template-columns:1fr}
+  .continue-num{border-right:0;border-bottom:var(--line);padding:10px}
+  .mod{grid-template-columns:1fr}
+  .mod-num{border-right:0;border-bottom:var(--line);font-size:48px}
+  .face .big{font-size:34px}
+  .flash-ctrl{margin-top:350px}
+  .logo-lockup svg,.logo-img{height:34px}
+  .logo-badge .logo-lockup svg,.logo-badge .logo-img{height:30px}
+  .hero-left::after{font-size:120px;bottom:-8px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}.reveal{opacity:1!important;transform:none!important}}
+/* ---------- 13 Enhancement ---------- */
+::selection{background:var(--red);color:#fff}
+::-webkit-scrollbar{width:12px}
+::-webkit-scrollbar-track{background:var(--paper);border-left:var(--line-thin)}
+::-webkit-scrollbar-thumb{background:var(--ink);border:2px solid var(--paper)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<div class="topflag" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- ================= HEADER ================= -->
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#/home" aria-label="Deutschraum home">
+      <span class="logo-lockup" id="logoLockup">
+        <svg id="logoSvg" height="42" viewBox="0 0 516 136" role="img" aria-label="Deutschraum logo">
+          <g>
+            <path d="M10,8 L116,48 L68,66 L68,104 L38,112 L10,116 Z" fill="#191919"/>
+            <path d="M76,68 L96,64 L96,110 L76,114 Z" fill="#191919" stroke="#191919" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M120,46 L120,64 Q120,78 108,80" fill="none" stroke="#E3182B" stroke-width="15" stroke-linecap="round"/>
+            <path d="M146,46 L146,64 Q146,78 134,80" fill="none" stroke="#E3182B" stroke-width="15" stroke-linecap="round"/>
+            <polygon points="88,100 118,93 130,110 100,117" fill="#F2AE19"/>
+            <polygon points="118,93 156,132 130,110" fill="#F2AE19"/>
+          </g>
+          <text x="170" y="90" font-family="'Segoe Print','Comic Sans MS','Chalkboard SE','Bradley Hand','Comic Neue',cursive" font-size="56" font-weight="700" letter-spacing="-1" textLength="332" lengthAdjust="spacingAndGlyphs" fill="#191919">Deutschraum</text>
+        </svg>
+      </span>
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="#/home" data-nav="home" data-i18n="nav_home">Home</a>
+      <a href="#/learn" data-nav="learn" data-i18n="nav_learn">Learn A1</a>
+      <a href="#/practice" data-nav="practice" data-i18n="nav_practice">Practice</a>
+      <a href="#/vocab" data-nav="vocab" data-i18n="nav_vocab">Vocabulary</a>
+      <a href="#/resources" data-nav="resources" data-i18n="nav_res">Resources</a>
+    </nav>
+    <div class="head-actions">
+      <div class="langseg" role="group" aria-label="Language">
+        <button id="btnEN" class="on" type="button">EN</button>
+        <button id="btnAR" type="button">عربي</button>
+      </div>
+      <span class="progress-pill" title="Demo progress"><i></i><span id="pillText">0 / 5 lessons</span></span>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="mmenu">☰</button>
+    </div>
+  </div>
+  <div class="mobilemenu" id="mmenu">
+    <a href="#/home" data-i18n="nav_home">Home</a>
+    <a href="#/learn" data-i18n="nav_learn">Learn A1</a>
+    <a href="#/practice" data-nav="practice" data-i18n="nav_practice">Practice</a>
+    <a href="#/vocab" data-i18n="nav_vocab">Vocabulary</a>
+    <a href="#/resources" data-i18n="nav_res">Resources</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= VIEW: HOME ================= -->
+<section class="view active" id="view-home">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-left">
+        <p class="label"><span class="sq"></span><span data-i18n="hero_kicker">Student German club · CEFR A1 · Prototype</span></p>
+        <h1><span class="row" data-i18n="hero_l1">German,</span><span class="row red" data-i18n="hero_l2">step by step.</span></h1>
+        <p class="hero-sub" data-i18n="hero_sub">Your first words. Your first conversations. Your journey through A1.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#/learn" id="ctaStart"><span data-i18n="cta_start">Start Learning →</span></a>
+          <a class="btn ghost" href="#/learn"><span data-i18n="cta_path">Explore the A1 Path</span></a>
+        </div>
+        <div class="hero-meta">
+          <div><b>01</b><span data-i18n="m_modules">Modules</span></div>
+          <div><b>05</b><span data-i18n="m_lessons">Lessons</span></div>
+          <div><b>A1</b><span>CEFR</span></div>
+        </div>
+      </div>
+      <div class="hero-right" aria-hidden="true">
+        <div class="geo geo-circle"></div>
+        <div class="geo geo-square"></div>
+        <div class="geo geo-semi"></div>
+        <div class="geo-word w-hallo de">Hallo!</div>
+        <div class="geo-word w-lernen de">LERNEN</div>
+        <div class="geo-word w-guten de">Guten Tag</div>
+        <svg class="geo geo-cross" viewBox="0 0 64 64"><path d="M28 4h8v24h24v8H36v24h-8V36H4v-8h24z" fill="#191919"/></svg>
+        <div class="geo geo-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="geo-tape de" aria-hidden="true"><span>Anfänger · <b>A1</b> · Deutschraum · Sprechen · Lesen ·&nbsp;</span><span>Anfänger · <b>A1</b> · Deutschraum · Sprechen · Lesen ·&nbsp;</span><span>Anfänger · <b>A1</b> · Deutschraum · Sprechen · Lesen ·&nbsp;</span></div>
+        <div class="geo-bar"></div>
+      </div>
+      <div class="stamp" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="stc" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><circle cx="60" cy="60" r="57" fill="#FAF9F5" stroke="#191919" stroke-width="3"/><text font-size="12.5" font-weight="800" letter-spacing="2" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"><textPath href="#stc" textLength="268">DEUTSCHRAUM • A1 STUDIO • LERNEN •</textPath></text><circle cx="60" cy="60" r="17" fill="#E3182B" stroke="#191919" stroke-width="3"/><text x="60" y="67" text-anchor="middle" font-size="19" font-weight="900" fill="#fff" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif">A1</text></svg></div>
+    </div>
+    <div class="hero-ticker"><div id="ticker">HALLO · GUTEN TAG · DANKE · BITTE · TSCHÜSS · LERNEN · SPRECHEN · LESEN · SCHREIBEN · HÖREN ·&nbsp; HALLO · GUTEN TAG · DANKE · BITTE · TSCHÜSS · LERNEN · SPRECHEN · LESEN · SCHREIBEN · HÖREN ·&nbsp;</div></div>
+  </div>
+
+  <div class="wrap section">
+    <div class="sec-head">
+      <h2 data-i18n="pickup">Pick up where <em>you left off.</em></h2>
+      <p class="label"><span class="sq"></span><span data-i18n="cont_label">Continue learning</span></p>
+    </div>
+    <article class="continue" id="continueCard" aria-live="polite">
+      <div class="continue-num" id="ccNum">01</div>
+      <div class="continue-body">
+        <p class="label" id="ccMod">Module 01 · First Steps</p>
+        <h3 id="ccTitle">Greetings and Introductions</h3>
+        <p id="ccObj">Greet people correctly by time of day and start a first conversation.</p>
+        <div class="continue-tags"><span class="tag red" id="ccTime">15 min</span><span class="tag" id="ccState">Not started</span><span class="tag dark de">A1 · Hallo!</span></div>
+      </div>
+      <div class="continue-side">
+        <div class="meter" aria-hidden="true"><i id="ccBar"></i></div>
+        <small id="ccPct" style="font-weight:800;font-size:12px;letter-spacing:.1em">0% COMPLETE</small>
+        <button class="btn" id="ccBtn" type="button"><span data-i18n="continue">Continue →</span></button>
+      </div>
+    </article>
+
+    <div class="strip" role="list" aria-label="Learning metrics">
+      <div role="listitem"><b id="stPct">0%</b><span data-i18n="s_a1">A1 progress · demo</span></div>
+      <div role="listitem"><b id="stDone">0 / 5</b><span data-i18n="s_done">Lessons completed</span></div>
+      <div role="listitem"><b id="stVoc">0 / 32</b><span data-i18n="s_vocab">Vocabulary learned</span></div>
+      <div role="listitem"><b id="stAct">—</b><span data-i18n="s_act">Recent activity</span></div>
+    </div>
+    <p class="demo-note"><span data-i18n="demo_note">All progress shown is illustrative demo data stored only in this browser (LocalStorage).</span> <button id="resetBtn" type="button" data-i18n="reset">Reset demo progress</button></p>
+  </div>
+</section>
+<!-- ================= VIEW: ROADMAP ================= -->
+<section class="view" id="view-learn">
+  <div class="wrap section">
+    <p class="label"><span class="sq"></span><span data-i18n="road_kicker">Module 01 · First Steps — ready to explore</span></p>
+    <div class="path-head">
+      <div><h2 data-i18n="road_h">First steps.<br><span>Start here.</span></h2>
+      <p style="color:#ddd;max-width:60ch" data-i18n="road_p">Module 01 takes you from the German alphabet to your first conversation. Further chapters will be added here with the club — nothing else is shown yet.</p></div>
+      <div style="font-family:var(--font-h);font-size:90px;line-height:1;color:var(--red)" aria-hidden="true">A1</div>
+    </div>
+    <div class="journey" id="journey"></div>
+  </div>
+</section>
+
+<!-- ================= VIEW: MODULE ================= -->
+<section class="view" id="view-module">
+  <div class="wrap section">
+    <p class="crumb"><a href="#/learn" data-i18n="crumb_path">← A1 Path</a> · <span id="mCrumb">Module 01</span></p>
+    <div class="chapter">
+      <div class="chapter-num"><div><span id="mNum">01</span><small data-i18n="chapter">Chapter</small></div></div>
+      <div class="chapter-body">
+        <p class="label"><span class="sq"></span><span id="mObjLabel">First steps</span></p>
+        <h2 id="mTitle">First Steps</h2>
+        <p id="mObj"></p>
+        <div class="continue-tags" id="mTags"></div>
+      </div>
+    </div>
+    <div id="mLessons" style="margin-top:0"></div>
+    <div class="prevnext">
+      <button class="btn ghost small" id="mPrev" type="button"><span class="arr">←</span> <span data-i18n="prev_mod">Prev module</span></button>
+      <button class="btn ghost small" id="mNext" type="button"><span data-i18n="next_mod">Next module</span> <span class="arr">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIEW: LESSON ================= -->
+<section class="view" id="view-lesson">
+  <div class="wrap section">
+    <p class="crumb"><a href="#/learn" data-i18n="crumb_path">← A1 Path</a> · <a href="#" id="lBack">Module</a> · <span id="lCrumb">Lesson</span></p>
+    <p class="label"><span class="sq"></span><span id="lKicker">Module 01 · Lesson 03</span></p>
+    <h2 id="lTitle" style="font-size:clamp(30px,4.5vw,56px)">Greetings and Introductions</h2>
+    <p id="lObj" style="max-width:70ch"></p>
+    <div class="lesson-shell">
+      <aside class="lesson-side">
+        <p class="label" data-i18n="in_this">In this lesson</p>
+        <ol id="lOutline"></ol>
+        <div class="progressbar" aria-hidden="true"><i id="lBar"></i></div>
+        <small id="lPct" style="font-weight:800;font-size:12px">STEP 1 / 3</small>
+      </aside>
+      <div class="lesson-main">
+        <div id="lContent"></div>
+        <div class="quizbox" id="lQuizBox">
+          <p class="label"><span class="sq"></span><span data-i18n="try_it">Try it — check yourself</span></p>
+          <h3 id="lQ" style="font-size:22px"></h3>
+          <div id="lOpts" role="group" aria-label="Answer options"></div>
+          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+            <button class="btn small" id="lSubmit" type="button" data-i18n="submit">Submit answer</button>
+            <button class="btn ghost small" id="lRetry" type="button" hidden data-i18n="retry">Try again</button>
+          </div>
+          <div class="feedback" id="lFeed" aria-live="polite"></div>
+        </div>
+        <div class="lesson-actions">
+          <button class="btn ghost small" id="lPrevBtn" type="button"><span class="arr">←</span> <span data-i18n="prev_l">Previous lesson</span></button>
+          <button class="btn yellow small" id="lCompleteBtn" type="button" data-i18n="mark_done">Mark complete</button>
+          <button class="btn small" id="lNextBtn" type="button"><span data-i18n="next_lesson">Next lesson →</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIEW: PRACTICE ================= -->
+<section class="view" id="view-practice">
+  <div class="wrap section">
+    <p class="label"><span class="sq"></span><span data-i18n="prac_kicker">The exercise room</span></p>
+    <div class="sec-head"><h2 data-i18n="prac_h">Practice makes <em>progress.</em></h2></div>
+    <div class="prac-grid" id="pracGrid"></div>
+    <div class="quizshell" id="quizShell">
+      <header><b data-i18n="quiz_t">A1 Revision Quiz · sample</b><span id="qCount">Q 1 / 6</span></header>
+      <div class="qbody">
+        <div class="progressbar"><i id="qBar"></i></div>
+        <div id="qBody"></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+          <button class="btn small" id="qSubmit" type="button" data-i18n="submit">Submit answer</button>
+          <button class="btn ghost small" id="qNext" type="button" hidden data-i18n="next_q">Next →</button>
+          <button class="btn yellow small" id="qRestart" type="button" hidden data-i18n="restart">Restart</button>
+        </div>
+        <div class="feedback" id="qFeed" aria-live="polite"></div>
+        <div id="qResult"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIEW: VOCAB ================= -->
+<section class="view" id="view-vocab">
+  <div class="wrap section">
+    <p class="label"><span class="sq"></span><span data-i18n="voc_kicker">Vocabulary trainer</span></p>
+    <div class="sec-head"><h2 data-i18n="voc_h">Words that <em>stick.</em></h2></div>
+    <div class="vocab-layout">
+      <aside class="vocab-filters">
+        <label class="label" for="vSearch" data-i18n="search">Search</label>
+        <input id="vSearch" type="search" placeholder="Suchen… z.B. Apfel" aria-label="Search vocabulary">
+        <p class="label" style="margin-top:18px" data-i18n="topics">Topics</p>
+        <div class="chips" id="vChips"></div>
+        <p class="demo-note" style="margin-top:18px"><span id="vCount"></span></p>
+      </aside>
+      <div class="vocab-main">
+        <div class="flash" id="flash" role="button" tabindex="0" aria-label="Flashcard — activate to flip">
+          <div class="flash-inner">
+            <div class="face front"><span class="label"><span class="sq"></span><span id="vTopicF">Greetings</span></span><span class="big de" id="vDe">Hallo!</span><span id="vArt" style="font-weight:800"></span><small style="color:var(--gray)" data-i18n="tap_flip">Tap card to flip ↻</small></div>
+            <div class="face back"><span class="label" style="color:var(--yellow)">EN · <span id="vTopicB">Greetings</span></span><span class="big" id="vEn" style="font-size:30px">Hello!</span><span class="de" id="vEx" style="font-size:14px"></span><span id="vPl" style="font-size:13px;color:var(--yellow)"></span><span id="vState" class="tag" style="width:fit-content"></span></div>
+          </div>
+        </div>
+        <div class="flash-ctrl">
+          <button class="btn ghost small" id="vPrev" type="button">← Prev</button>
+          <button class="btn ghost small" id="vFlip" type="button" data-i18n="flip">Flip</button>
+          <button class="btn ghost small" id="vNext" type="button">Next →</button>
+        </div>
+        <div class="flash-ctrl">
+          <button class="btn yellow small" id="vLearned" type="button" data-i18n="mark_learned">✓ Learned</button>
+          <button class="btn ghost small" id="vReview" type="button" data-i18n="needs_rev">Needs revision</button>
+        </div>
+        <p class="countline" id="vPos">1 / 32</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIEW: RESOURCES ================= -->
+<section class="view" id="view-resources">
+  <div class="wrap section">
+    <p class="label"><span class="sq"></span><span data-i18n="res_kicker">The learning library · samples</span></p>
+    <div class="sec-head"><h2 data-i18n="res_h">Read. Print. <em>Revise.</em></h2></div>
+    <div id="resList"></div>
+    <div class="about">
+      <div class="sq" aria-hidden="true"></div>
+      <div>
+        <p class="label" style="color:var(--yellow)"><span data-i18n="about_k">About Deutschraum</span></p>
+        <h3 style="font-size:26px" data-i18n="about_h">A student club making German accessible.</h3>
+        <p style="color:#ddd" data-i18n="about_p">Deutschraum is a student-led club teaching beginners German at CEFR A1 level — alphabet to first conversations. This prototype shows the visual direction and curriculum structure for the team to refine. All files and events shown here are illustrative samples.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><div class="giant" aria-hidden="true">Deutschraum</div></div>
+  <div class="wrap foot">
+    <div><span class="logo-badge"><span class="logo-lockup" id="logoLockupF"></span></span><div style="height:12px"></div><small data-i18n="foot_p">Student German club · A1 learning prototype. Demo data only — no accounts, no backend.</small><div class="topflag" style="margin-top:14px;max-width:180px"><span></span><span></span><span></span></div></div>
+    <div><h4 data-i18n="foot_learn">Learn</h4><a href="#/learn">A1 Path</a><a href="#/practice">Practice</a><a href="#/vocab">Vocabulary</a><a href="#/resources">Resources</a></div>
+    <div><h4>Studio</h4><a href="#/home">Home</a><a href="#/resources">About</a><a href="#main">↑ Top</a><a href="#/home" id="footReset">Reset demo progress</a></div>
+  </div>
+  <div class="wrap disclaimer"><span>© 2026 Deutschraum · Prototype for club review · Bauhaus-inspired direction · Works offline from file://</span></div>
+</footer>
+
+<script>
+"use strict";
+"use strict";
+/* ================================================================
+   00 DATA — Module 01 (First Steps) + vocabulary + quizzes
+   ================================================================ */
+var MODULES=[
+ {id:1,title:"First Steps",obj:"Alphabet, pronunciation, greetings and first introductions.",mins:57,lessons:[
+  {t:"The German Alphabet",m:12,obj:"Recognise and recite A–Z including Ä, Ö, Ü, ß.",body:"alphabet"},
+  {t:"Pronunciation Basics",m:10,obj:"Master key sounds: ch, sch, ei, ie, umlauts.",body:"pron"},
+  {t:"Greetings and Introductions",m:15,obj:"Greet people correctly by time of day and start a first conversation.",body:"greet"},
+  {t:"Introducing Yourself",m:12,obj:"Say your name, age and where you live.",body:"self"},
+  {t:"Module Review",m:8,obj:"Check greetings, spelling and first sentences.",body:"review1"}]}
+];
+var GREET_ROWS=[
+ ["Hallo!","Hello!"],["Guten Morgen!","Good morning! (until ~11:00)"],["Guten Tag!","Good day! (midday greeting)"],
+ ["Guten Abend!","Good evening!"],["Auf Wiedersehen!","Goodbye! (formal)"],["Tschüss!","Bye! (informal)"]];
+var VOCAB=[
+ {de:"Hallo!",en:"Hello!",art:"—",pl:"—",ex:"Hallo! Ich heiße Sara.",exEn:"Hello! I'm Sara.",topic:"Greetings"},
+ {de:"Guten Morgen",en:"Good morning",art:"der Morgen",pl:"die Morgen",ex:"Guten Morgen, Herr Ali!",exEn:"Good morning, Mr Ali!",topic:"Greetings"},
+ {de:"Guten Tag",en:"Good day / hello",art:"der Tag",pl:"die Tage",ex:"Guten Tag! Wie geht's?",exEn:"Hello! How are you?",topic:"Greetings"},
+ {de:"Tschüss",en:"Bye (informal)",art:"—",pl:"—",ex:"Tschüss! Bis morgen!",exEn:"Bye! See you tomorrow!",topic:"Greetings"},
+ {de:"Danke",en:"Thank you",art:"—",pl:"—",ex:"Danke schön!",exEn:"Thank you very much!",topic:"Everyday"},
+ {de:"Bitte",en:"Please / you're welcome",art:"—",pl:"—",ex:"Ein Wasser, bitte.",exEn:"One water, please.",topic:"Everyday"},
+ {de:"Name",en:"name",art:"der",pl:"die Namen",ex:"Mein Name ist Omar.",exEn:"My name is Omar.",topic:"Introductions"},
+ {de:"Mutter",en:"mother",art:"die",pl:"die Mütter",ex:"Meine Mutter heißt Lina.",exEn:"My mother is called Lina.",topic:"Family"},
+ {de:"Vater",en:"father",art:"der",pl:"die Väter",ex:"Mein Vater wohnt in Kairo.",exEn:"My father lives in Cairo.",topic:"Family"},
+ {de:"Schwester",en:"sister",art:"die",pl:"die Schwestern",ex:"Ich habe eine Schwester.",exEn:"I have one sister.",topic:"Family"},
+ {de:"Bruder",en:"brother",art:"der",pl:"die Brüder",ex:"Mein Bruder ist zehn.",exEn:"My brother is ten.",topic:"Family"},
+ {de:"Schule",en:"school",art:"die",pl:"die Schulen",ex:"Die Schule beginnt um acht.",exEn:"School starts at eight.",topic:"School"},
+ {de:"Buch",en:"book",art:"das",pl:"die Bücher",ex:"Das Buch ist neu.",exEn:"The book is new.",topic:"School"},
+ {de:"Stift",en:"pen",art:"der",pl:"die Stifte",ex:"Hast du einen Stift?",exEn:"Do you have a pen?",topic:"School"},
+ {de:"Lehrer",en:"teacher (m.)",art:"der",pl:"die Lehrer",ex:"Unser Lehrer ist nett.",exEn:"Our teacher is nice.",topic:"School"},
+ {de:"Brot",en:"bread",art:"das",pl:"die Brote",ex:"Ich esse Brot.",exEn:"I eat bread.",topic:"Food"},
+ {de:"Wasser",en:"water",art:"das",pl:"die Wasser",ex:"Ein Wasser, bitte.",exEn:"One water, please.",topic:"Food"},
+ {de:"Apfel",en:"apple",art:"der",pl:"die Äpfel",ex:"Der Apfel ist rot.",exEn:"The apple is red.",topic:"Food"},
+ {de:"Milch",en:"milk",art:"die",pl:"—",ex:"Trinkst du Milch?",exEn:"Do you drink milk?",topic:"Food"},
+ {de:"eins",en:"one",art:"—",pl:"—",ex:"eins, zwei, drei",exEn:"one, two, three",topic:"Numbers"},
+ {de:"zehn",en:"ten",art:"—",pl:"—",ex:"Ich bin zehn Jahre alt.",exEn:"I am ten years old.",topic:"Numbers"},
+ {de:"zwanzig",en:"twenty",art:"—",pl:"—",ex:"zwanzig Schüler",exEn:"twenty pupils",topic:"Numbers"},
+ {de:"Tag",en:"day",art:"der",pl:"die Tage",ex:"Guten Tag!",exEn:"Good day!",topic:"Everyday"},
+ {de:"Zeit",en:"time",art:"die",pl:"die Zeiten",ex:"Wie viel Uhr ist es?",exEn:"What time is it?",topic:"Everyday"},
+ {de:"Stadt",en:"town / city",art:"die",pl:"die Städte",ex:"Die Stadt ist groß.",exEn:"The town is big.",topic:"Places"},
+ {de:"Bahnhof",en:"station",art:"der",pl:"die Bahnhöfe",ex:"Wo ist der Bahnhof?",exEn:"Where is the station?",topic:"Places"},
+ {de:"Freund",en:"friend (m.)",art:"der",pl:"die Freunde",ex:"Er ist mein Freund.",exEn:"He is my friend.",topic:"Introductions"},
+ {de:"Jahr",en:"year",art:"das",pl:"die Jahre",ex:"Ich bin zwölf Jahre alt.",exEn:"I am twelve years old.",topic:"Introductions"},
+ {de:"sprechen",en:"to speak",art:"Verb",pl:"spricht / gesprochen",ex:"Ich spreche Deutsch und Arabisch.",exEn:"I speak German and Arabic.",topic:"Everyday"},
+ {de:"lernen",en:"to learn",art:"Verb",pl:"lernt / gelernt",ex:"Wir lernen Deutsch.",exEn:"We learn German.",topic:"Everyday"},
+ {de:"wohnen",en:"to live",art:"Verb",pl:"wohnt / gewohnt",ex:"Ich wohne in Amman.",exEn:"I live in Amman.",topic:"Introductions"},
+ {de:"heißen",en:"to be called",art:"Verb",pl:"heißt / geheißen",ex:"Wie heißt du?",exEn:"What is your name?",topic:"Introductions"}
+];
+var QUIZ=[
+ {q:"What does “Guten Morgen” mean?",opts:["Good evening","Good morning","Goodbye","Thank you"],a:1,why:"Morgen = morning. Say it until about 11:00."},
+ {q:"How do you say “Bye” informally?",opts:["Auf Wiedersehen","Guten Tag","Tschüss","Bitte"],a:2,why:"Tschüss is informal. Auf Wiedersehen is formal."},
+ {q:"“Ich ___ Omar.” (I am called Omar.)",opts:["heiße","heißt","bist","bin"],a:0,why:"ich heiße — first person of heißen."},
+ {q:"Which article fits: “___ Apfel”?",opts:["die","das","der","den"],a:2,why:"Apfel is masculine: der Apfel, plural die Äpfel."},
+ {q:"What is “zwanzig”?",opts:["12","20","10","100"],a:1,why:"zwanzig = 20. zehn = 10, zwölf = 12."},
+ {q:"“Ein Wasser, ___.” (polite order)",opts:["danke","tschüss","bitte","tag"],a:2,why:"bitte = please. Use it for polite requests."}
+];
+var PRAC_AREAS=[
+ {n:"01",t:"Vocabulary",d:"High-frequency A1 words with articles and plurals.",c:"var(--red)"},
+ {n:"02",t:"Grammar",d:"Articles, verbs sein/haben, word order.",c:"var(--ink)"},
+ {n:"03",t:"Reading",d:"Short texts: introductions, timetables, menus.",c:"var(--yellow)"},
+ {n:"04",t:"Listening",d:"Use Speak buttons — repeat greetings and numbers aloud.",c:"var(--ink)"},
+ {n:"05",t:"Sentence Building",d:"Verb-second rule: Ich / wohne / in Berlin.",c:"var(--red)"},
+ {n:"06",t:"A1 Revision",d:"Mixed sample quiz below — try the full set.",c:"var(--yellow)"}
+];
+var RESOURCES=[
+ {c:"Grammar",t:"Articles der / die / das — one-page guide",d:"Sample sheet: rules, examples, and a 6-item check. Illustrative sample, no file attached.",col:"#E3182B"},
+ {c:"Vocabulary",t:"First 100 A1 words — printable sheet",d:"Sample list grouped by greetings, school, family, food. Illustrative sample.",col:"#F2AE19"},
+ {c:"Pronunciation",t:"Ä Ö Ü + ch / sch / ei notes",d:"Sample notes with Speak-button practice words. Audio uses browser speech if available.",col:"#191919"},
+ {c:"Reading",t:"Mini-texts: Sara stellt sich vor",d:"Sample A1 reading with 4 questions. Answers included for club review.",col:"#E3182B"},
+ {c:"Worksheet",t:"Numbers 0–100 revision worksheet",d:"Sample worksheet: dictation grid + price game. Illustrative sample.",col:"#191919"},
+ {c:"Web",t:"German-learning websites (curated)",d:"Sample links list the club can finalise: public dictionaries and A1 channels.",col:"#F2AE19"},
+ {c:"Club",t:"Club announcements board (sample)",d:"Sample entries only — no real events are claimed. The club adds real dates later.",col:"#191919"},
+ {c:"About",t:"About Deutschraum + how to join",d:"Student-led club goal: make German accessible to school students. Ask a teacher to join.",col:"#E3182B"}
+];
+var LESSON_Q={
+ greet:{q:'What does "Guten Morgen" mean?',opts:["Good evening","Good morning","Goodbye","Please"],a:1,why:"Morgen = morning. Use Guten Morgen until late morning, then Guten Tag."},
+ alphabet:{q:"Which letters are extra in German vs English?",opts:["Ä Ö Ü ß","X Y Z","É È Ê","Q W X"],a:0,why:"German adds Ä, Ö, Ü and ß (Eszett)."},
+ pron:{q:"How is “sch” pronounced?",opts:["sk","sh (ʃ)","s+h separately","k"],a:1,why:"sch = English 'sh', e.g. Schule."},
+ self:{q:'Complete: "Ich ___ Sara."',opts:["heißt","heiße","bist","bin Sara"],a:1,why:"ich heiße — 'I am called'. ich bin Sara also works but heiße fits the blank."},
+ review1:{q:"Which greeting fits 15:00?",opts:["Guten Morgen","Guten Tag","Gute Nacht","Tschüss only"],a:1,why:"Afternoon = Guten Tag. Gute Nacht is bedtime."},
+ review:{q:"Pick the correct sentence.",opts:["Ich wohne in Berlin.","Ich in Berlin wohne.","Wohne ich in Berlin always.","In Berlin ich wohne."],a:0,why:"Verb second: Ich (1) wohne (2) in Berlin."},
+ numbers:{q:"What is “dreizehn”?",opts:["13","30","3","23"],a:0,why:"dreizehn = 13; dreißig = 30."},
+ verbs:{q:"Choose: “Wir ___ Deutsch.”",opts:["lerne","lernt","lernen","lernst"],a:2,why:"wir lernen — infinitive form for wir/sie/Sie."},
+ time:{q:"“Es ist halb acht” means…",opts:["8:30","7:30","7:00","6:30"],a:1,why:"halb acht = half before eight = 7:30."},
+ family:{q:"“meine Mutter” — Mutter is…",opts:["masculine","feminine","neuter","plural only"],a:1,why:"die Mutter (feminine). Possessive: meine."},
+ school:{q:"“der Stift” means…",opts:["book","pen","table","school"],a:1,why:"der Stift = pen. das Buch = book."},
+ syntax:{q:"Where does the verb go in statements?",opts:["First","Second position","Last always","Anywhere"],a:1,why:"Verb-second rule: Ich lerne Deutsch."},
+ food:{q:"“Ich möchte ein Wasser, bitte.” means…",opts:["I want water, please","I am water","Water is good","Where is water?"],a:0,why:"Ich möchte = I would like — polite ordering."},
+ places:{q:"“Wo ist der Bahnhof?” asks…",opts:["What time?","Where is the station?","Who are you?","How much?"],a:1,why:"Wo = where; der Bahnhof = station."},
+ generic:{q:'What does "Danke schön" mean?',opts:["Goodbye","Thank you very much","Please sit","See you"],a:1,why:"Danke = thanks; schön adds warmth."}
+};
+/* ================================================================
+   01 I18N — EN default, AR optional. German content never translated.
+   ================================================================ */
+var I18N={
+ en:{skip:"Skip to content",nav_home:"Home",nav_learn:"Learn A1",nav_practice:"Practice",nav_vocab:"Vocabulary",nav_res:"Resources",hero_kicker:"Student German club · CEFR A1 · Prototype",hero_l1:"German,",hero_l2:"step by step.",hero_sub:"Your first words. Your first conversations. Your journey through A1.",cta_start:"Start Learning →",cta_path:"Explore the A1 Path",m_modules:"Modules",m_lessons:"Lessons",pickup:"PICKUPH",cont_label:"Continue learning",continue:"Continue →",s_a1:"A1 progress · demo",s_done:"Lessons completed",s_vocab:"Vocabulary learned",s_act:"Recent activity",demo_note:"All progress shown is illustrative demo data stored only in this browser (LocalStorage).",reset:"Reset demo progress",road_kicker:"Module 01 · First Steps — ready to explore",road_p:"Module 01 takes you from the German alphabet to your first conversation. Further chapters will be added here with the club — nothing else is shown yet.",crumb_path:"← A1 Path",chapter:"Chapter",in_this:"In this lesson",try_it:"Try it — check yourself",submit:"Submit answer",retry:"Try again",mark_done:"Mark complete",next_lesson:"Next lesson →",next_q:"Next →",restart:"Restart",prac_kicker:"The exercise room",quiz_t:"A1 Revision Quiz · sample",voc_kicker:"Vocabulary trainer",search:"Search",topics:"Topics",tap_flip:"Tap card to flip ↻",flip:"Flip",mark_learned:"✓ Learned",needs_rev:"Needs revision",res_kicker:"The learning library · samples",about_k:"About Deutschraum",about_h:"A student club making German accessible.",about_p:"Deutschraum is a student-led club teaching beginners German at CEFR A1 level — alphabet to first conversations. This prototype shows the visual direction and curriculum structure for the team to refine. All files and events shown here are illustrative samples.",foot_p:"Student German club · A1 learning prototype. Demo data only — no accounts, no backend.",foot_learn:"Learn",mod_w:"Module",les_w:"Lesson",lessons_w:"lessons",min_w:"min",prev_l:"Previous lesson",prev_mod:"Previous module",next_mod:"Next module",quiz_q:"Q {a} / {b}",les_pos:"Lesson {a} of {b}",v_total:"{a} words · {b} learned",learned:"Learned ✓",rev:"Needs revision",fresh:"New",no_match:"No matches",plural_w:"Plural",excellent:"Excellent — Module 01 complete.",good:"Good progress — review greetings and articles.",again:"Keep going — redo lessons 3–4.",res_score:"Score",res_correct:"Correct",res_rev:"Suggested revision",topic_All:"All",topic_Greetings:"Greetings",topic_Everyday:"Everyday",topic_Introductions:"Introductions",topic_Family:"Family",topic_School:"School",topic_Food:"Food",topic_Numbers:"Numbers",topic_Places:"Places",cat_Grammar:"Grammar",cat_Vocabulary:"Vocabulary",cat_Pronunciation:"Pronunciation",cat_Reading:"Reading",cat_Worksheet:"Worksheet",cat_Web:"Web",cat_Club:"Club",cat_About:"About"},
+ ar:{skip:"تخطَّ إلى المحتوى",nav_home:"الرئيسية",nav_learn:"تعلّم A1",nav_practice:"تدرّب",nav_vocab:"المفردات",nav_res:"الموارد",hero_kicker:"نادي ألماني طلابي · مستوى A1 · نموذج أولي",hero_l1:"الألمانية،",hero_l2:"خطوة بخطوة.",hero_sub:"كلماتك الأولى. محادثاتك الأولى. رحلتك عبر A1.",cta_start:"ابدأ التعلّم ←",cta_path:"استكشف مسار A1",m_modules:"وحدات",m_lessons:"درسًا",pickup:"PICKUPH",cont_label:"تابع التعلّم",continue:"تابع ←",s_a1:"تقدّم A1 · تجريبي",s_done:"دروس مكتملة",s_vocab:"مفردات مُتقنة",s_act:"النشاط الأخير",demo_note:"كل التقدّم المعروض بيانات تجريبية تُحفظ في متصفحك فقط.",reset:"صفّر التقدّم التجريبي",road_kicker:"الوحدة 01 · الخطوات الأولى — جاهزة للاستكشاف",road_p:"تأخذك الوحدة 01 من الأبجدية الألمانية إلى محادثتك الأولى. ستُضاف الفصول التالية هنا مع النادي — لا شيء آخر معروض بعد.",crumb_path:"← مسار A1",chapter:"فصل",in_this:"في هذا الدرس",try_it:"جرّب بنفسك",submit:"إرسال الإجابة",retry:"حاول مجددًا",mark_done:"إتمام الدرس",next_lesson:"الدرس التالي ←",next_q:"التالي ←",restart:"إعادة",prac_kicker:"غرفة التمارين",quiz_t:"اختبار مراجعة A1 · عيّنة",voc_kicker:"مدرّب المفردات",search:"بحث",topics:"المواضيع",tap_flip:"انقر البطاقة لقلبها ↻",flip:"اقلب",mark_learned:"✓ أتقنتها",needs_rev:"تحتاج مراجعة",res_kicker:"مكتبة التعلّم · عيّنات",about_k:"عن دويتش راوم",about_h:"نادٍ طلابي يجعل الألمانية في متناول الجميع.",about_p:"دويتش راوم نادٍ طلابي يعلّم المبتدئين الألمانية بمستوى A1 — من الأبجدية إلى المحادثات الأولى. يعرض هذا النموذج التوجّه البصري وهيكل المنهج ليراجعه الفريق. كل الملفات والفعاليات هنا عيّنات توضيحية.",foot_p:"نادٍ ألماني طلابي · نموذج A1. بيانات تجريبية فقط — لا حسابات ولا خادم.",foot_learn:"تعلّم",mod_w:"الوحدة",les_w:"الدرس",lessons_w:"دروس",min_w:"د",prev_l:"الدرس السابق",prev_mod:"الوحدة السابقة",next_mod:"الوحدة التالية",quiz_q:"س {a} / {b}",les_pos:"الدرس {a} من {b}",v_total:"{a} كلمات · تم إتقان {b}",learned:"مُتقنة ✓",rev:"تحتاج مراجعة",fresh:"جديدة",no_match:"لا نتائج",plural_w:"الجمع",excellent:"عمل ممتاز — الوحدة 01 مكتملة.",good:"تقدّم جيد — راجع التحيات والأدوات.",again:"واصل — أعد دروس 3-4.",res_score:"النتيجة",res_correct:"صحيحة",res_rev:"مراجعة مقترحة",topic_All:"الكل",topic_Greetings:"التحيات",topic_Everyday:"يوميات",topic_Introductions:"التعارف",topic_Family:"العائلة",topic_School:"المدرسة",topic_Food:"الطعام",topic_Numbers:"الأرقام",topic_Places:"الأماكن",cat_Grammar:"القواعد",cat_Vocabulary:"المفردات",cat_Pronunciation:"النطق",cat_Reading:"القراءة",cat_Worksheet:"أوراق عمل",cat_Web:"مواقع",cat_Club:"النادي",cat_About:"عن النادي"}
+};
+var lang="en";
+try{lang=localStorage.getItem("dr_lang")||"en";}catch(e){}
+function T(k){return (I18N[lang]&&I18N[lang][k])||I18N.en[k]||k;}
+function fmt(k,a,b){return T(k).replace("{a}",a).replace("{b}",b);}
+function Tt(prefix,name){var k=prefix+name;return (I18N[lang]&&I18N[lang][k])||I18N.en[k]||name;}
+function applyLang(){
+ document.documentElement.lang=(lang==="ar"?"ar":"en");
+ document.documentElement.dir=(lang==="ar"?"rtl":"ltr");
+ document.getElementById("btnEN").classList.toggle("on",lang==="en");
+ document.getElementById("btnAR").classList.toggle("on",lang==="ar");
+ document.querySelectorAll("[data-i18n]").forEach(function(el){
+  var k=el.getAttribute("data-i18n");
+  if(k==="pickup"||k==="road_h"||k==="prac_h"||k==="voc_h"||k==="res_h")return;
+  var v=(I18N[lang]&&I18N[lang][k])||I18N.en[k];
+  if(v)el.textContent=v;
+ });
+ renderJourney(); renderPracAreas(); renderResources(); renderChips(); updateHome(); watchReveals();
+ if(lang==="ar"){ document.querySelector('[data-i18n="pickup"]').innerHTML="تابع من حيث <em>توقّفت.</em>";
+  document.querySelector('[data-i18n="road_h"]')&&(document.querySelector('[data-i18n="road_h"]').innerHTML="الخطوات الأولى.<br><span>ابدأ من هنا.</span>");
+  document.querySelector('[data-i18n="prac_h"]')&&(document.querySelector('[data-i18n="prac_h"]').innerHTML="التدرّب يصنع <em>التقدّم.</em>");
+  document.querySelector('[data-i18n="voc_h"]')&&(document.querySelector('[data-i18n="voc_h"]').innerHTML="كلمات <em>لا تُنسى.</em>");
+  document.querySelector('[data-i18n="res_h"]')&&(document.querySelector('[data-i18n="res_h"]').innerHTML="اقرأ. اطبع. <em>راجع.</em>");
+ } else {
+  var pu=document.querySelector('[data-i18n="pickup"]'); if(pu)pu.innerHTML="Pick up where <em>you left off.</em>";
+  var rh=document.querySelector('[data-i18n="road_h"]'); if(rh)rh.innerHTML='First steps.<br><span>Start here.</span>';
+  var ph=document.querySelector('[data-i18n="prac_h"]'); if(ph)ph.innerHTML='Practice makes <em>progress.</em>';
+  var vh=document.querySelector('[data-i18n="voc_h"]'); if(vh)vh.innerHTML='Words that <em>stick.</em>';
+  var sh=document.querySelector('[data-i18n="res_h"]'); if(sh)sh.innerHTML='Read. Print. <em>Revise.</em>';
+ }
+}
+/* ================================================================
+   02 STORE — LocalStorage demo progress
+   ================================================================ */
+var KEY="deutschraum_v1";
+var store={done:[],vocLearned:[],vocReview:[],quizBest:0,last:"—"};
+try{var s=JSON.parse(localStorage.getItem(KEY)||"null"); if(s) store=Object.assign(store,s);}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+function lid(m,l){return m+"-"+l;}
+function isDone(m,l){return store.done.indexOf(lid(m,l))>=0;}
+function totalLessons(){return MODULES.reduce(function(a,m){return a+m.lessons.length;},0);}
+function nextLesson(){for(var m=0;m<MODULES.length;m++){for(var l=0;l<MODULES[m].lessons.length;l++){if(!isDone(MODULES[m].id,l+1))return{mod:MODULES[m],li:l+1};}}return{mod:MODULES[0],li:1};}
+/* ================================================================
+   03 ROUTER — hash views, no reload
+   ================================================================ */
+var cur={view:"home"};
+function go(h){location.hash=h;}
+function route(){
+ var h=(location.hash||"#/home").replace("#","");
+ var parts=h.split("/").filter(Boolean);
+ var v=parts[0]||"home";
+ document.querySelectorAll(".view").forEach(function(s){s.classList.remove("active");});
+ document.querySelectorAll("nav.main a").forEach(function(a){a.removeAttribute("aria-current");});
+ var map={home:"home",learn:"learn",module:"module",lesson:"lesson",practice:"practice",vocab:"vocab",resources:"resources"};
+ var show=map[v]||"home";
+ document.getElementById("view-"+show).classList.add("active");
+ var navKey={home:"home",learn:"learn",module:"learn",lesson:"learn",practice:"practice",vocab:"vocab",resources:"resources"}[show];
+ var na=document.querySelector('nav.main a[data-nav="'+navKey+'"]'); if(na)na.setAttribute("aria-current","page");
+ cur.view=show;
+ if(v==="module"){openModule(parseInt(parts[1]||"1",10));}
+ if(v==="lesson"){openLesson(parseInt(parts[1]||"1",10),parseInt(parts[2]||"1",10));}
+ if(v==="home"){updateHome();}
+ if(v==="learn"){renderJourney();}
+ document.getElementById("mmenu").classList.remove("open");
+ document.getElementById("main").scrollIntoView({block:"start"});
+ window.scrollTo(0,0);
+ watchReveals();
+}
+window.addEventListener("hashchange",route);
+/* ================================================================
+   04 HOME — continue + strip
+   ================================================================ */
+function updateHome(){
+ var nx=nextLesson(), m=nx.mod, les=m.lessons[nx.li-1];
+ document.getElementById("ccNum").textContent=("0"+m.id).slice(-2);
+ document.getElementById("ccMod").textContent=T("mod_w")+" "+("0"+m.id).slice(-2)+" · "+m.title;
+ document.getElementById("ccTitle").textContent=("0"+nx.li).slice(-2)+" · "+les.t;
+ document.getElementById("ccObj").textContent=les.obj;
+ document.getElementById("ccTime").textContent=les.m+" "+T("min_w");
+ document.getElementById("ccState").textContent=isDone(m.id,nx.li)?T("learned"):T("fresh");
+ var tot=totalLessons(), dn=store.done.length, pct=Math.round(dn/tot*100);
+ document.getElementById("ccBar").style.width=pct+"%";
+ document.getElementById("ccPct").textContent=pct+"% "+(lang==="ar"?"مكتمل":"COMPLETE");
+ document.getElementById("stPct").textContent=pct+"%";
+ document.getElementById("stDone").textContent=dn+" / "+tot;
+ document.getElementById("stVoc").textContent=store.vocLearned.length+" / "+VOCAB.length;
+ document.getElementById("stAct").textContent=store.last;
+ document.getElementById("pillText").textContent=dn+" / "+tot+" "+T("lessons_w");
+ document.getElementById("ccBtn").onclick=function(){go("/lesson/"+m.id+"/"+nx.li);};
+ document.getElementById("ctaStart").setAttribute("href","#/lesson/"+m.id+"/"+nx.li);
+}
+/* ================================================================
+   05 ROADMAP
+   ================================================================ */
+function renderJourney(){
+ var j=document.getElementById("journey"); j.innerHTML="";
+ MODULES.forEach(function(m){
+  var tot=m.lessons.length, dn=m.lessons.filter(function(_,x){return isDone(m.id,x+1);}).length;
+  var st=dn===tot?"done":((nextLesson().mod.id===m.id)?"current":"open");
+  var d=document.createElement("article"); d.className="mod is-"+st+" reveal";
+  var stLabel={done:T("learned"),current:(lang==="ar"?"الحالي ●":"Current ●"),open:(lang==="ar"?"متاح ○":"Available ○")}[st];
+  d.innerHTML='<div class="mod-num">'+("0"+m.id).slice(-2)+'</div>'+
+   '<div class="mod-body"><p class="status"><span class="dot"></span>'+stLabel+'</p>'+
+   '<h3>'+m.title+'</h3><p>'+m.obj+'</p>'+
+   '<div class="mod-meta"><span class="tag">'+m.lessons.length+' '+T("lessons_w")+'</span><span class="tag">≈ '+m.mins+' '+T("min_w")+'</span><span class="tag dark">'+dn+'/'+m.lessons.length+'</span></div></div>'+
+   '<div class="mod-side"><button class="btn small" type="button">'+(lang==="ar"?"افتح ←":"Open →")+'</button></div>';
+  var btn=d.querySelector("button");
+  btn.onclick=function(){go("/module/"+m.id);};
+  j.appendChild(d);
+ });
+}
+var curMod=1;
+function openModule(id){
+ curMod=Math.min(MODULES.length,Math.max(1,id));
+ var m=MODULES[curMod-1];
+ document.getElementById("mCrumb").textContent=T("mod_w")+" "+("0"+m.id).slice(-2);
+ document.getElementById("mNum").textContent=("0"+m.id).slice(-2);
+ document.getElementById("mTitle").textContent=m.title;
+ document.getElementById("mObjLabel").textContent=m.obj;
+ document.getElementById("mObj").textContent="In this chapter you will: "+m.obj+" Five short lessons, each with teaching content and a quick check.";
+ document.getElementById("mTags").innerHTML='<span class="tag">'+m.lessons.length+' '+T("lessons_w")+'</span><span class="tag red">≈ '+m.mins+' '+T("min_w")+'</span><span class="tag dark">A1 · CEFR</span>';
+ var box=document.getElementById("mLessons"); box.innerHTML="";
+ var nx=nextLesson();
+ m.lessons.forEach(function(L,i){
+  var n=i+1, done=isDone(m.id,n), isCur=(nx.mod.id===m.id&&nx.li===n);
+  var r=document.createElement("button");
+  r.type="button"; r.className="lessonrow reveal"+(done?" done":(isCur?" current":""));
+  r.style.cssText="width:100%;text-align:left;font:inherit;padding:0;cursor:pointer";
+  r.setAttribute("aria-label","Lesson "+n+": "+L.t+(done?", "+T("learned"):""));
+  r.innerHTML='<span class="n">'+("0"+n).slice(-2)+'</span><span class="t"><b>'+L.t+'</b><span>'+L.obj+'</span></span><span class="mins">'+L.m+' '+T("min_w")+'</span><span class="go arr" style="padding-inline-end:18px;font-weight:900">'+(done?"✓":"→")+'</span>';
+  r.onclick=function(){go("/lesson/"+m.id+"/"+n);};
+  box.appendChild(r);
+ });
+ document.getElementById("mPrev").style.display=(curMod>1)?"":"none";
+ document.getElementById("mNext").style.display=(curMod<MODULES.length)?"":"none";
+ document.getElementById("mPrev").onclick=function(){if(curMod>1)go("/module/"+(curMod-1));};
+ document.getElementById("mNext").onclick=function(){if(curMod<MODULES.length)go("/module/"+(curMod+1));};
+}
+/* ================================================================
+   06 LESSON CONTENT + INTERACTIVE LESSON
+   ================================================================ */
+var curLesQ=null;
+function speakDE(text){
+ if("speechSynthesis" in window){
+  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang="de-DE";u.rate=.85;speechSynthesis.speak(u);}
+  catch(e){alert("Audio unavailable in this browser.");}
+ } else alert("Audio unavailable: speech synthesis not supported here.");
+}
+function lessonBodyHTML(kind){
+ if(kind==="greet"){
+  var rows=GREET_ROWS.map(function(r){return '<tr><td class="de">'+r[0]+' <button class="speak" type="button" data-say="'+r[0]+'">▶</button></td><td>'+r[1]+'</td></tr>';}).join("");
+  return '<p><b>Rule of thumb:</b> morning → <span class="de"><b>Guten Morgen</b></span>; midday → <span class="de"><b>Guten Tag</b></span>; evening → <span class="de"><b>Guten Abend</b></span>. Friends say <span class="de"><b>Hallo / Tschüss</b></span>; strangers hear <span class="de"><b>Auf Wiedersehen</b></span>.</p>'
+  +'<h3 class="de" style="font-size:30px">Guten Tag!</h3>'
+  +'<table class="vocab-table"><thead><tr><th>German</th><th>English</th></tr></thead><tbody>'+rows+'</tbody></table>'
+  +'<div class="dialog"><div><b class="de">Sara: Hallo! Ich heiße Sara. Wie heißt du?</b> <button class="speak" type="button" data-say="Hallo! Ich heiße Sara. Wie heißt du?">▶</button><br><small>Hello! I\'m Sara. What\'s your name?</small></div>'
+  +'<div><b class="de">Omar: Hallo Sara! Ich heiße Omar. Wie geht\'s?</b> <button class="speak" type="button" data-say="Hallo Sara! Ich heiße Omar. Wie geht es dir?">▶</button><br><small>Hello Sara! I\'m Omar. How are you?</small></div>'
+  +'<div><b class="de">Sara: Gut, danke! Tschüss, Omar!</b> <button class="speak" type="button" data-say="Gut, danke! Tschüss, Omar!">▶</button><br><small>Good, thanks! Bye, Omar!</small></div></div>';
+ }
+ if(kind==="alphabet")return '<h3 class="de" style="font-size:30px">A B C … ß</h3><p>German uses A–Z plus <span class="de"><b>Ä Ö Ü</b></span> and <span class="de"><b>ß</b></span> (Eszett, sounds like <i>ss</i>). Spell your name aloud: <span class="de"><b>Ich buchstabiere: …</b></span></p><table class="vocab-table"><tbody><tr><td class="de">Ä ä <button class="speak" type="button" data-say="Ä">▶</button></td><td>like “e” in <i>bed</i>, longer</td></tr><tr><td class="de">Ö ö <button class="speak" type="button" data-say="Ö">▶</button></td><td>round lips, say “er”</td></tr><tr><td class="de">Ü ü <button class="speak" type="button" data-say="Ü">▶</button></td><td>round lips, say “ee”</td></tr><tr><td class="de">ß <button class="speak" type="button" data-say="Straße">▶</button></td><td>ss — <span class="de">Straße</span> (street)</td></tr></tbody></table>';
+ if(kind==="pron")return '<h3 class="de" style="font-size:30px">Sprich nach!</h3><p>Four sounds unlock most A1 words. Press ▶ and repeat three times.</p><table class="vocab-table"><tbody><tr><td class="de">sch <button class="speak" type="button" data-say="Schule">▶</button></td><td><span class="de">Schule</span> — like English “sh”</td></tr><tr><td class="de">ch <button class="speak" type="button" data-say="ich">▶</button></td><td><span class="de">ich</span> — soft hiss after i/e</td></tr><tr><td class="de">ei / ie <button class="speak" type="button" data-say="mein Bier">▶</button></td><td><span class="de">mein</span> (“mine”) vs <span class="de">Bier</span> (“beer” = ee)</td></tr><tr><td class="de">w → v <button class="speak" type="button" data-say="Wasser">▶</button></td><td><span class="de">Wasser</span> sounds like “Vasser”</td></tr></tbody></table>';
+ if(kind==="self")return '<h3 class="de" style="font-size:30px">Ich heiße …</h3><p>Introduce yourself with three frames.</p><div class="dialog"><div><b class="de">Ich heiße Sara.</b><br><small>I am called Sara.</small></div><div><b class="de">Ich bin zwölf Jahre alt.</b><br><small>I am twelve years old.</small></div><div><b class="de">Ich wohne in Amman.</b><br><small>I live in Amman.</small></div></div>';
+ return '<h3 class="de" style="font-size:30px">Üben wir!</h3><p>Review the examples, then take the check below. Say each German sentence aloud using ▶.</p><div class="dialog"><div><b class="de">Wie heißt du? — Ich heiße Omar.</b> <button class="speak" type="button" data-say="Wie heißt du? Ich heiße Omar.">▶</button></div><div><b class="de">Wo wohnst du? — Ich wohne in Berlin.</b> <button class="speak" type="button" data-say="Wo wohnst du? Ich wohne in Berlin.">▶</button></div><div><b class="de">Danke! — Bitte! Tschüss!</b> <button class="speak" type="button" data-say="Danke! Bitte! Tschüss!">▶</button></div></div>';
+}
+function openLesson(mid,ln){
+ var m=MODULES[mid-1]; if(!m){go("/learn");return;}
+ ln=Math.min(m.lessons.length,Math.max(1,ln));
+ var L=m.lessons[ln-1];
+ document.getElementById("lKicker").textContent=T("mod_w")+" "+("0"+mid).slice(-2)+" · "+T("les_w")+" "+("0"+ln).slice(-2);
+ document.getElementById("lTitle").textContent=L.t;
+ document.getElementById("lObj").textContent="Objective: "+L.obj;
+ document.getElementById("lBack").textContent=T("mod_w")+" "+("0"+mid).slice(-2)+" · "+m.title;
+ document.getElementById("lBack").href="#/module/"+mid;
+ document.getElementById("lCrumb").textContent=L.t;
+ document.getElementById("lOutline").innerHTML="<li>Read & listen</li><li>Key examples</li><li>Quick check</li>";
+ document.getElementById("lContent").innerHTML=lessonBodyHTML(L.body||"generic");
+ document.getElementById("lContent").querySelectorAll("[data-say]").forEach(function(b){b.onclick=function(ev){ev.stopPropagation();speakDE(b.getAttribute("data-say"));};});
+ if(lang==="ar"){var TH={"German":"الألمانية","English":"الإنجليزية"};document.getElementById("lContent").querySelectorAll("th").forEach(function(th){if(TH[th.textContent])th.textContent=TH[th.textContent];});}
+ curLesQ=Object.assign({},LESSON_Q[L.body]||LESSON_Q.generic);
+ renderLessonQuiz();
+ document.getElementById("lBar").style.width=Math.round(ln/m.lessons.length*100)+"%";
+ document.getElementById("lPct").textContent=fmt("les_pos",ln,m.lessons.length);
+ document.getElementById("lPrevBtn").onclick=function(){if(ln>1)go("/lesson/"+mid+"/"+(ln-1));else go("/module/"+mid);};
+ document.getElementById("lNextBtn").onclick=function(){if(ln<m.lessons.length)go("/lesson/"+mid+"/"+(ln+1));else if(mid<MODULES.length)go("/module/"+(mid+1));else go("/practice");};
+ var done=isDone(mid,ln),cb=document.getElementById("lCompleteBtn");
+ cb.textContent=done?T("learned"):T("mark_done");cb.disabled=done;
+ cb.onclick=function(){
+  if(isDone(mid,ln))return;
+  store.done.push(lid(mid,ln));store.last=m.title+" · "+L.t;save();updateHome();
+  cb.textContent=T("learned");cb.disabled=true;
+ };
+}
+var lSel=-1;
+function renderLessonQuiz(){
+ lSel=-1;
+ document.getElementById("lQ").textContent=curLesQ.q;
+ var box=document.getElementById("lOpts"); box.innerHTML="";
+ document.getElementById("lFeed").className="feedback";
+ document.getElementById("lFeed").textContent="";
+ document.getElementById("lRetry").hidden=true;
+ curLesQ.opts.forEach(function(o,i){
+  var b=document.createElement("button");b.type="button";b.className="opt";b.setAttribute("aria-pressed","false");
+  var lb=document.createElement("span");lb.className="olet";lb.textContent="ABCD"[i];b.appendChild(lb);b.appendChild(document.createTextNode(o));
+  b.onclick=function(){lSel=i;box.querySelectorAll(".opt").forEach(function(x){x.setAttribute("aria-pressed","false");});b.setAttribute("aria-pressed","true");};
+  box.appendChild(b);
+ });
+ document.getElementById("lSubmit").onclick=function(){
+  var f=document.getElementById("lFeed");
+  if(lSel<0){f.textContent=(lang==="ar"?"اختر إجابة أولًا.":"Choose an answer first.");f.classList.add("show");return;}
+  var opts=box.querySelectorAll(".opt");
+  opts[curLesQ.a].classList.add("correct");
+  if(lSel===curLesQ.a){f.innerHTML="<b>✓ "+(lang==="ar"?"صحيح.":"Correct.")+"</b> "+curLesQ.why;f.className="feedback show good";}
+  else{opts[lSel].classList.add("wrong");f.innerHTML="<b>✗ "+(lang==="ar"?"ليس بعد.":"Not quite.")+"</b> "+curLesQ.why;f.className="feedback show";}
+  document.getElementById("lRetry").hidden=false;
+ };
+ document.getElementById("lRetry").onclick=renderLessonQuiz;
+}
+/* ================================================================
+   07 PRACTICE
+   ================================================================ */
+function renderPracAreas(){
+ var g=document.getElementById("pracGrid"); if(!g)return; g.innerHTML="";
+ PRAC_AREAS.forEach(function(p,i){
+  var d=document.createElement("div");d.className="prac reveal";
+  d.innerHTML='<b class="num">'+p.n+'</b><h3>'+p.t+'</h3><p>'+p.d+'</p><div class="shape" style="background:'+p.c+'"></div><button class="btn ghost small" type="button">'+(i===5?"Start quiz ↓":"Revise ↓")+'</button>';
+  d.querySelector("button").onclick=function(){
+   document.getElementById("quizShell").scrollIntoView({behavior:"smooth",block:"center"});
+   if(i===3)alert("Listening tip: open any lesson and press the ▶ Speak buttons, then repeat aloud. Uses browser speech when available.");
+  };
+  g.appendChild(d);
+ });
+}
+var qI=0,qScore=0,qSel=-1,qLock=false;
+function renderQ(){
+ qSel=-1;qLock=false;
+ document.getElementById("qFeed").className="feedback";
+ document.getElementById("qFeed").textContent="";
+ document.getElementById("qResult").innerHTML="";
+ document.getElementById("qNext").hidden=true;
+ document.getElementById("qRestart").hidden=true;
+ document.getElementById("qSubmit").hidden=false;
+ var Q=QUIZ[qI];
+ document.getElementById("qCount").textContent=fmt("quiz_q",qI+1,QUIZ.length)+" · "+T("res_score")+" "+qScore;
+ document.getElementById("qBar").style.width=Math.round(qI/QUIZ.length*100)+"%";
+ var b=document.getElementById("qBody");
+ b.innerHTML="<h3 style='font-size:22px;margin:0 0 6px'>"+Q.q+"</h3><div id='qOpts'></div>";
+ var ob=b.querySelector("#qOpts");
+ Q.opts.forEach(function(o,i){
+  var btn=document.createElement("button");btn.type="button";btn.className="opt";btn.setAttribute("aria-pressed","false");
+  var lb=document.createElement("span");lb.className="olet";lb.textContent="ABCD"[i];btn.appendChild(lb);btn.appendChild(document.createTextNode(o));
+  btn.onclick=function(){if(qLock)return;qSel=i;ob.querySelectorAll(".opt").forEach(function(x){x.setAttribute("aria-pressed","false");});btn.setAttribute("aria-pressed","true");};
+  ob.appendChild(btn);
+ });
+ document.getElementById("qSubmit").onclick=function(){
+  if(qLock)return;
+  var F=document.getElementById("qFeed");
+  if(qSel<0){F.textContent=(lang==="ar"?"اختر إجابة أولًا.":"Choose an answer first.");F.classList.add("show");return;}
+  qLock=true;var opts=ob.querySelectorAll(".opt");
+  opts[Q.a].classList.add("correct");
+  if(qSel===Q.a){qScore++;F.innerHTML="<b>✓ "+(lang==="ar"?"صحيح.":"Correct.")+"</b> "+Q.why;F.className="feedback show good";}
+  else{opts[qSel].classList.add("wrong");F.innerHTML="<b>✗ "+(lang==="ar"?"ليس بعد.":"Not quite.")+"</b> "+Q.why+" Correct: <b class='de'>"+Q.opts[Q.a]+"</b>";F.className="feedback show";}
+  document.getElementById("qSubmit").hidden=true;
+  document.getElementById("qNext").hidden=false;
+  document.getElementById("qNext").textContent=(qI<QUIZ.length-1)?T("next_q"):T("res_score")+" →";
+ };
+ document.getElementById("qNext").onclick=function(){
+  if(qI<QUIZ.length-1){qI++;renderQ();}
+  else showQResult();
+ };
+}
+function showQResult(){
+ var pct=Math.round(qScore/QUIZ.length*100);
+ document.getElementById("qBar").style.width="100%";
+ document.getElementById("qCount").textContent=qScore+"/"+QUIZ.length;
+ document.getElementById("qBody").innerHTML="<h3 style='font-size:26px'>"+T("res_score")+": "+qScore+" / "+QUIZ.length+" ("+pct+"%)</h3><p>"+(pct>=80?T("excellent"):pct>=50?T("good"):T("again"))+"</p>";
+ document.getElementById("qResult").innerHTML='<div class="scoreband"><div><b style="font-family:var(--font-h);font-size:28px">'+qScore+'</b><br><small>'+T("res_correct")+'</small></div><div><b style="font-family:var(--font-h);font-size:28px">'+pct+'%</b><br><small>'+T("res_score")+'</small></div><div><small>'+T("res_rev")+': <span class="de">Guten Morgen, Tschüss, heißen, der Apfel, zwanzig, bitte.</span></small></div></div>';
+ document.getElementById("qNext").hidden=true;document.getElementById("qSubmit").hidden=true;
+ document.getElementById("qRestart").hidden=false;
+ document.getElementById("qFeed").className="feedback";
+ if(qScore>store.quizBest){store.quizBest=qScore;store.last="Quiz "+qScore+"/"+QUIZ.length;save();updateHome();}
+ document.getElementById("qRestart").onclick=function(){qI=0;qScore=0;renderQ();};
+}
+/* ================================================================
+   08 VOCABULARY
+   ================================================================ */
+var vList=VOCAB.slice(),vI=0,vTopic="All",vQ="";
+function topics(){var s={};VOCAB.forEach(function(w){s[w.topic]=1;});return["All"].concat(Object.keys(s));}
+function renderChips(){
+ var c=document.getElementById("vChips");c.innerHTML="";
+ topics().forEach(function(t){
+  var b=document.createElement("button");b.type="button";b.className="chip"+(vTopic===t?" on":"");b.textContent=Tt("topic_",t);
+  b.onclick=function(){vTopic=t;applyVocFilter();renderChips();};
+  c.appendChild(b);
+ });
+}
+function applyVocFilter(){
+ vList=VOCAB.filter(function(w){return(vTopic==="All"||w.topic===vTopic)&&(!vQ||w.de.toLowerCase().indexOf(vQ)>=0||w.en.toLowerCase().indexOf(vQ)>=0);});
+ vI=0;renderVoc();
+}
+function renderVoc(){
+ if(!vList.length){document.getElementById("vDe").textContent="—";document.getElementById("vEn").textContent=T("no_match");document.getElementById("vCount").textContent=fmt("v_total",0,0);document.getElementById("vPos").textContent="0 / 0";return;}
+ vI=(vI+vList.length)%vList.length;
+ var w=vList[vI];
+ document.getElementById("flash").classList.remove("flipped");
+ document.getElementById("vDe").textContent=w.de;
+ document.getElementById("vArt").textContent=(w.art&&w.art!=="—"&&w.art!=="Verb")?("("+w.art+")"):"";
+ document.getElementById("vEn").textContent=w.en;
+ document.getElementById("vEx").textContent="“"+w.ex+"” — "+w.exEn;
+ document.getElementById("vPl").textContent=(w.pl&&w.pl!=="—")?(T("plural_w")+": "+w.pl):"";
+ document.getElementById("vTopicF").textContent=Tt("topic_",w.topic);document.getElementById("vTopicB").textContent=Tt("topic_",w.topic);
+ var st=document.getElementById("vState");
+ var k=VOCAB.indexOf(w);
+ if(store.vocLearned.indexOf(k)>=0){st.textContent=T("learned");st.style.background="#F2AE19";st.style.color="#191919";}
+ else if(store.vocReview.indexOf(k)>=0){st.textContent=T("rev");st.style.background="#E3182B";st.style.color="#fff";}
+ else{st.textContent=T("fresh");st.style.background="#fff";st.style.color="#191919";}
+ document.getElementById("vCount").textContent=fmt("v_total",vList.length,store.vocLearned.length);
+ document.getElementById("vPos").textContent=(vI+1)+" / "+vList.length;
+}
+/* ================================================================
+   09 RESOURCES
+   ================================================================ */
+function renderResources(){
+ var box=document.getElementById("resList");box.innerHTML="";
+ RESOURCES.forEach(function(r,i){
+  var d=document.createElement("div");d.className="res-row reveal"+(i===0?" first":"");
+  d.innerHTML='<span class="res-cat"><i style="background:'+r.col+'"></i>'+Tt("cat_",r.c)+'</span><div><h3>'+r.t+'</h3><p>'+r.d+'</p></div><button class="btn ghost small" type="button">'+T("open_sample")+'</button>';
+  d.querySelector("button").onclick=function(){alert(r.t+". — "+T("sample_info"));};
+  box.appendChild(d);
+ });
+}
+/* ================================================================
+   10 LOGO + REVEAL + WIRING
+   ================================================================ */
+(function(){
+ var src=document.getElementById("logoSvg");
+ var f=document.getElementById("logoLockupF");
+ if(src&&f){var c=src.cloneNode(true);c.removeAttribute("id");c.setAttribute("aria-label","Deutschraum logo");f.appendChild(c);}
+})();
+var revealIO=null;
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window){
+ revealIO=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");revealIO.unobserve(e.target);}});},{threshold:.08});
+}
+function watchReveals(){
+ document.querySelectorAll(".reveal:not(.in)").forEach(function(el){
+  if(!revealIO){el.classList.add("in");return;}
+  revealIO.observe(el);
+ });
+}
+document.querySelectorAll(".hero-left,.hero-right,.continue,.strip,.path-head,.quizshell,.vocab-layout,.about,.chapter,.lesson-shell").forEach(function(el){el.classList.add("reveal");});
+document.getElementById("btnEN").onclick=function(){lang="en";try{localStorage.setItem("dr_lang","en");}catch(e){}applyLang();};
+document.getElementById("btnAR").onclick=function(){lang="ar";try{localStorage.setItem("dr_lang","ar");}catch(e){}applyLang();};
+document.getElementById("burger").onclick=function(){var m=document.getElementById("mmenu");var o=m.classList.toggle("open");this.setAttribute("aria-expanded",o);};
+function resetAll(){store={done:[],vocLearned:[],vocReview:[],quizBest:0,last:"—"};save();updateHome();renderJourney();renderVoc();qI=0;qScore=0;if(cur.view==="practice")renderQ();alert(lang==="ar"?"تم تصفير التقدّم التجريبي.":"Demo progress cleared.");}
+document.getElementById("resetBtn").onclick=resetAll;
+document.getElementById("footReset").onclick=function(e){e.preventDefault();resetAll();};
+function flip(){document.getElementById("flash").classList.toggle("flipped");}
+document.getElementById("vSearch").addEventListener("input",function(e){vQ=e.target.value.trim().toLowerCase();applyVocFilter();});
+document.getElementById("vPrev").onclick=function(){vI--;renderVoc();};
+document.getElementById("vNext").onclick=function(){vI++;renderVoc();};
+document.getElementById("vFlip").onclick=function(e){e.stopPropagation();flip();};
+document.getElementById("flash").onclick=flip;
+document.getElementById("flash").addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();flip();}});
+document.getElementById("vLearned").onclick=function(){var k=VOCAB.indexOf(vList[vI]);if(store.vocLearned.indexOf(k)<0)store.vocLearned.push(k);store.vocReview=store.vocReview.filter(function(x){return x!==k;});store.last="Vocab: "+vList[vI].de;save();renderVoc();updateHome();};
+document.getElementById("vReview").onclick=function(){var k=VOCAB.indexOf(vList[vI]);if(store.vocReview.indexOf(k)<0)store.vocReview.push(k);store.vocLearned=store.vocLearned.filter(function(x){return x!==k;});save();renderVoc();};
+document.addEventListener("keydown",function(e){if(cur.view!=="vocab")return;if(e.key==="ArrowRight"){vI++;renderVoc();}if(e.key==="ArrowLeft"){vI--;renderVoc();}});
+applyLang();renderQ();renderVoc();updateHome();watchReveals();
+if(!location.hash)location.hash="#/home";
+route();
+
+
+
+</script>
+</body>
+</html>

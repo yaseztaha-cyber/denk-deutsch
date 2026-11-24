@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DENK Deutsch — rig test</title>
+<style>
+  html,body{margin:0;background:#e9e4da;font:12px/1.4 "Segoe UI",Arial,sans-serif}
+  #stage{position:relative;width:1600px;height:1000px;background:#c6bfb2;overflow:hidden}
+  svg{position:absolute;inset:0;width:1600px;height:1000px}
+  .cap{position:absolute;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#666}
+</style>
+</head>
+<body>
+<div id="stage">
+  <svg id="art" viewBox="0 0 1600 1000">
+    <defs>
+      <linearGradient id="lensGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#232326"/><stop offset="0.55" stop-color="#3B3C40"/><stop offset="1" stop-color="#5A5B60"/>
+      </linearGradient>
+      <linearGradient id="pinkGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FF86B3"/><stop offset="1" stop-color="#FF2E7A"/>
+      </linearGradient>
+      <radialGradient id="drawerGlow" cx="0.5" cy="0.4" r="0.7">
+        <stop offset="0" stop-color="#FFE3EE"/><stop offset="1" stop-color="#FF3F86"/>
+      </radialGradient>
+      <clipPath id="headClip"><path d="M -46 -56 C -50 -80 -34 -98 -6 -101 C 24 -104 46 -88 50 -64 C 53 -44 46 -22 26 -12 C 8 -3 -14 -6 -30 -18 C -42 -28 -45 -42 -46 -56 Z"/></clipPath>
+      <clipPath id="shirtClip"><path d="M -47 -198 C -56 -176 -55 -140 -48 -120 L 48 -120 C 55 -140 56 -176 47 -198 Z"/></clipPath>
+      <clipPath id="canopyClip"><path d="M 685 520 Q 985 318 1285 520 Z"/></clipPath>
+    </defs>
+    <g id="scene"></g>
+  </svg>
+</div>
+<script type="module" src="./test.js"></script>
+</body>
+</html>

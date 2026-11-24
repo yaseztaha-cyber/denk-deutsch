@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DENK Deutsch — G11 Mid Revision</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <svg id="art" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FDEBC2"/>
+          <stop offset="0.42" stop-color="#F9C98F"/>
+          <stop offset="0.72" stop-color="#F4A075"/>
+          <stop offset="1" stop-color="#EE8A6B"/>
+        </linearGradient>
+        <radialGradient id="sunHalo" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="#FFEFC4" stop-opacity="0.95"/>
+          <stop offset="0.55" stop-color="#FFD79A" stop-opacity="0.35"/>
+          <stop offset="1" stop-color="#FFC98A" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#4CC6C0"/>
+          <stop offset="0.45" stop-color="#189B9E"/>
+          <stop offset="1" stop-color="#0C6B80"/>
+        </linearGradient>
+        <linearGradient id="sandGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#F4D6A4"/>
+          <stop offset="0.4" stop-color="#E9C08C"/>
+          <stop offset="1" stop-color="#D8A46C"/>
+        </linearGradient>
+        <linearGradient id="lensGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#1C1C1F"/>
+          <stop offset="0.55" stop-color="#34353A"/>
+          <stop offset="1" stop-color="#5E5F66"/>
+        </linearGradient>
+        <linearGradient id="pinkGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FF8FBA"/>
+          <stop offset="0.5" stop-color="#FF4E90"/>
+          <stop offset="1" stop-color="#E0186C"/>
+        </linearGradient>
+        <radialGradient id="drawerGlow" cx="0.5" cy="0.35" r="0.75">
+          <stop offset="0" stop-color="#FFE7F0"/>
+          <stop offset="0.5" stop-color="#FF69A6"/>
+          <stop offset="1" stop-color="#C01660" stop-opacity="0.4"/>
+        </radialGradient>
+        <radialGradient id="flashGrad" cx="0.5" cy="0.5" r="0.6">
+          <stop offset="0" stop-color="#FFFFFF"/>
+          <stop offset="0.35" stop-color="#FFD3E5"/>
+          <stop offset="1" stop-color="#FF3F86" stop-opacity="0"/>
+        </radialGradient>
+        <clipPath id="headClip">
+          <path d="M -46 -56 C -50 -80 -34 -98 -6 -101 C 24 -104 46 -88 50 -64 C 53 -44 46 -22 26 -12 C 8 -3 -14 -6 -30 -18 C -42 -28 -45 -42 -46 -56 Z"/>
+        </clipPath>
+        <clipPath id="shirtClip">
+          <path d="M -47 -198 C -56 -176 -55 -140 -48 -120 L 48 -120 C 55 -140 56 -176 47 -198 Z"/>
+        </clipPath>
+        <clipPath id="canopyClip">
+          <path d="M 685 520 Q 985 318 1285 520 Z"/>
+        </clipPath>
+        <clipPath id="drawerClip">
+          <rect x="-140" y="-360" width="280" height="360"/>
+        </clipPath>
+      </defs>
+      <g id="scene"></g>
+    </svg>
+    <div id="type"></div>
+    <div id="makeup"></div>
+  </div>
+</div>
+<div id="hud">
+  <button id="play">Play</button>
+  <span id="clock">00:00</span>
+  <div class="bar"><i id="bar"></i></div>
+  <span>DENK DEUTSCH · G11 MID REVISION</span>
+</div>
+<script type="module" src="./film.js"></script>
+</body>
+</html>

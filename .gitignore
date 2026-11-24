@@ -1,0 +1,14 @@
+# Build outputs
+_build/
+out/
+
+# Large media / archives
+*.mp4
+*.zip
+
+# Dependencies
+node_modules/
+
+# IDE / OS
+.DS_Store
+Thumbs.db
